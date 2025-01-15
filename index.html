@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utilizando PyScript</title>
+  <!-- Links para a versão estável do PyScript -->
+  <!-- <link rel="stylesheet" href="https://pyscript.net/unstable/pyscript.css"> -->
+  <script defer src="https://pyscript.net/unstable/pyscript.js"></script>
+</head>
+<body>
+
+  <py-repl id="my-repl" auto-generate="true">
+
+
+  </py-repl>
+  <h1>Cálculo de Lucro</h1>
+  <py-script>
+      from datetime import datetime
+      data_atual = datetime.now()
+      print(f"Atualizado em: {data_atual}")
+
+      faturamento = 1000
+      custo = 400
+      lucro = faturamento - custo
+    
+      print(f"O lucro foi de {lucro}")
+  </py-script>
+</body>
+</html>
