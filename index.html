@@ -5,26 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utilizando PyScript</title>
   <!-- Links para a versão estável do PyScript -->
-  <!-- <link rel="stylesheet" href="https://pyscript.net/unstable/pyscript.css"> -->
+  <link rel="stylesheet" href="https://pyscript.net/unstable/pyscript.css">
   <script defer src="https://pyscript.net/unstable/pyscript.js"></script>
+
+  <!-- para instalar pacotes use o py-env -->
+  <py-env>
+      - pandas
+      
+  </py-env>
+
 </head>
 <body>
 
-  <py-repl id="my-repl" auto-generate="true">
+  <!-- <py-repl id="my-repl" auto-generate="true"> -->
 
 
-  </py-repl>
+  <!-- </py-repl> -->
+
+  
   <h1>Cálculo de Lucro</h1>
-  <py-script>
-      from datetime import datetime
-      data_atual = datetime.now()
-      print(f"Atualizado em: {data_atual}")
 
-      faturamento = 1000
-      custo = 400
-      lucro = faturamento - custo
+
+  <h2>Imprimindo uma Tabela com Pandas</h2>
+  <p id="csv"></p>
+  <py-script>
+    <!-- from datetime import datetime -->
+    import pandas as pd
+    from pyodide.http import open_url
     
-      print(f"O lucro foi de {lucro}")
+    
+    <!-- data_atual = datetime.now()
+    print(f"Atualizado em: {data_atual}") -->
+    
+ 
+    link = pd.read_csv(open_url("https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"))
+    csv = Element('csv')
+    csv.write(link.df)
+
+    
+    
+    write("tabela", tabela.to_html(index=False))
   </py-script>
 </body>
 </html>
